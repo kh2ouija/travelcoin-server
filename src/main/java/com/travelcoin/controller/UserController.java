@@ -2,19 +2,14 @@ package com.travelcoin.controller;
 
 import com.travelcoin.dto.Claim;
 import com.travelcoin.model.Asset;
+import com.travelcoin.model.Product;
 import com.travelcoin.model.Provider;
 import com.travelcoin.model.User;
-import com.travelcoin.repository.AssetRepository;
-import com.travelcoin.repository.AssetTypeRepository;
-import com.travelcoin.repository.ProviderRepository;
-import com.travelcoin.repository.UserRepository;
+import com.travelcoin.repository.*;
 import com.travelcoin.service.AgentsFacade;
 import com.travelcoin.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,21 +35,29 @@ public class UserController {
     @Autowired
     private SecurityService securityService;
 
-    @RequestMapping(method = RequestMethod.POST, path = "/authenticate")
+    @Autowired
+    private ProductRepository productRepository;
+
+    @PostMapping("/authenticate")
     public User getUserDetails() {
         return securityService.getCurrentLoggedInUser();
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/providers")
+    @GetMapping("/providers")
     public List<Provider> getAllProviders() {
         return providerRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/claim")
+    @PostMapping("/claim")
     public List<Asset> claim(Claim claim) {
         User user = securityService.getCurrentLoggedInUser();
         List<Asset> assets = agentsFacade.claim(user, claim.getProviderId(), claim.getCustomerIdentifier());
         return assets;
+    }
+
+    @GetMapping("/products")
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
 }

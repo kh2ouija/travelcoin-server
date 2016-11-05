@@ -16,38 +16,8 @@ public class AssetType {
     @ManyToOne
     private Provider provider;
 
-    private String displayName;
+    private String title;
+    private String unitName;
     private BigDecimal conversionRate;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        this.provider = provider;
-    }
-
-    public BigDecimal getConversionRate() {
-        return conversionRate;
-    }
-
-    public void setConversionRate(BigDecimal conversionRate) {
-        this.conversionRate = conversionRate;
-    }
 }
