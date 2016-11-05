@@ -1,17 +1,25 @@
 package com.travelcoin.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
+@Entity
 public class Asset {
 
+    @Id
+    @GeneratedValue
     private Long id;
-    private AssetType assetType;
-    private BigDecimal amount;
 
-    public Asset(AssetType assetType, BigDecimal amount) {
-        this.assetType = assetType;
-        this.amount = amount;
-    }
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private AssetType assetType;
+
+    private BigDecimal amount;
 
     public Long getId() {
         return id;

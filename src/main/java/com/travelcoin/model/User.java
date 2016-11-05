@@ -1,17 +1,23 @@
 package com.travelcoin.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue
     private Long id;
-    private String name;
+
+    @OneToMany(mappedBy = "user")
     private List<Asset> assets;
 
-    public User(String name, List<Asset> assets) {
-        this.name = name;
-        this.assets = assets;
-    }
+    private String name;
+    private String email;
 
     public Long getId() {
         return id;
