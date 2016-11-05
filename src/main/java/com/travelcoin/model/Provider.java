@@ -1,5 +1,7 @@
 package com.travelcoin.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +14,8 @@ public class Provider {
     private Long id;
 
     private String name;
+
+    @JsonIgnore
     private String endpoint;
 
     public Long getId() {

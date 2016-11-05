@@ -19,12 +19,6 @@ public class AssetType {
     private String displayName;
     private BigDecimal conversionRate;
 
-    public AssetType(Provider provider, String displayName, BigDecimal conversionRate) {
-        this.provider = provider;
-        this.displayName = displayName;
-        this.conversionRate = conversionRate;
-    }
-
     public Long getId() {
         return id;
     }
