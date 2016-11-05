@@ -19,12 +19,21 @@ public class User {
     private String name;
     private String email;
 
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Asset> getAssets() {
+        return assets;
+    }
+
+    public void setAssets(List<Asset> assets) {
+        this.assets = assets;
     }
 
     public String getName() {
@@ -35,11 +44,11 @@ public class User {
         this.name = name;
     }
 
-    public List<Asset> getAssets() {
-        return assets;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAssets(List<Asset> assets) {
-        this.assets = assets;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

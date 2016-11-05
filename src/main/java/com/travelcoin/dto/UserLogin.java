@@ -1,4 +1,4 @@
-package com.travelcoin.model;
+package com.travelcoin.dto;
 
 public class UserLogin {
 
