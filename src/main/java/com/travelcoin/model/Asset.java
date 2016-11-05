@@ -1,5 +1,7 @@
 package com.travelcoin.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ public class Asset {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @ManyToOne

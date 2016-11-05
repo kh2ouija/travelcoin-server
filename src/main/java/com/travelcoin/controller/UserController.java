@@ -1,15 +1,16 @@
 package com.travelcoin.controller;
 
 import com.travelcoin.dto.Claim;
-import com.travelcoin.dto.UserLogin;
 import com.travelcoin.model.Asset;
 import com.travelcoin.model.Provider;
 import com.travelcoin.model.User;
+import com.travelcoin.repository.AssetRepository;
+import com.travelcoin.repository.AssetTypeRepository;
 import com.travelcoin.repository.ProviderRepository;
 import com.travelcoin.repository.UserRepository;
-import com.travelcoin.service.ProviderClient;
-import com.travelcoin.service.ProviderClientFactory;
+import com.travelcoin.service.AgentsFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,11 +29,18 @@ public class UserController {
     private ProviderRepository providerRepository;
 
     @Autowired
-    private ProviderClientFactory providerClientFactory;
+    private AssetRepository assetRepository;
+
+    @Autowired
+    private AssetTypeRepository assetTypeRepository;
+
+    @Autowired
+    private AgentsFacade agentsFacade;
 
     @RequestMapping(method = RequestMethod.POST, path = "/authenticate")
-    public User authenticate(UserLogin userLogin) {
-        return userRepository.findByEmail(userLogin.getEmail());
+    public User getUserDetails() {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByEmail(email);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/providers")
@@ -40,9 +48,10 @@ public class UserController {
         return providerRepository.findAll();
     }
 
-    public void claim(Claim claim) {
-        ProviderClient agent = providerClientFactory.get(claim.getProviderId());
-        List<Asset> assets = agent.claimAssets(claim.getCustomerIdentifier());
+    @RequestMapping(method = RequestMethod.POST, path = "/claim")
+    public List<Asset> claim(Claim claim) {
+        List<Asset> assets = agentsFacade.claim(claim.getProviderId(), claim.getCustomerIdentifier());
+        return assets;
     }
 
 }

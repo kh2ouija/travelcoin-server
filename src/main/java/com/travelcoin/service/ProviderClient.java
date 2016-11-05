@@ -15,7 +15,6 @@ public class ProviderClient {
     }
 
     public List<Asset> claimAssets(String customerIdentifier) {
-        // REST call to agent deployed on actor premises
         return Collections.emptyList();
     }
 }
