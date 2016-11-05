@@ -1,6 +1,7 @@
 package com.travelcoin.controller;
 
 import com.travelcoin.dto.Claim;
+import com.travelcoin.dto.UserLogin;
 import com.travelcoin.model.Asset;
 import com.travelcoin.model.Product;
 import com.travelcoin.model.Provider;
@@ -39,8 +40,8 @@ public class UserController {
     private ProductRepository productRepository;
 
     @PostMapping("/authenticate")
-    public User getUserDetails() {
-        return securityService.getCurrentLoggedInUser();
+    public User getUserDetails(UserLogin userLogin) {
+        return userRepository.findByEmail(userLogin.getEmail());
     }
 
     @GetMapping("/providers")

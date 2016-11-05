@@ -2,10 +2,7 @@ package com.travelcoin.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -23,6 +20,11 @@ public class Asset {
     private AssetType assetType;
 
     private BigDecimal amount;
+
+    @Transient
+    public BigDecimal getValue() {
+        return amount.multiply(assetType.getConversionRate());
+    }
 
     public Long getId() {
         return id;

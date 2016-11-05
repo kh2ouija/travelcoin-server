@@ -1,9 +1,7 @@
 package com.travelcoin.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -19,6 +17,10 @@ public class User {
     private String name;
     private String email;
 
+    @Transient
+    public BigDecimal totalAssetsValue() {
+        return assets.stream().map(Asset::getValue).reduce(BigDecimal::add).get();
+    }
 
     public Long getId() {
         return id;
