@@ -1,14 +1,20 @@
 INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(1, 'Accor', 'http://localhost:8081/api');
-INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
-    VALUES(1, 1, 'Accor Points', 'points', 'Accomodation', 'http://i.forbesimg.com/media/lists/companies/accor_416x416.jpg', '5');
+INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
+    VALUES(1, 1, 'Accor', 'Every day, AccorHotels Group welcomes the world in its 3700 hotels located in 94 countries.',
+    'points', 'Accomodation', '/img/loyalty/Accor.png', '5');
 
-INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(2, 'KLM', 'http://localhost:8082/api');
-INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
-    VALUES(2, 2, 'KLM Miles', 'miles', 'Transportation', 'https://pbs.twimg.com/profile_images/603848039862796289/xivNn5bW.png', '8');
+INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(2, 'Hilton', 'http://localhost:8082/api');
+INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
+    VALUES(2, 2, 'Hilton', 'Hilton',
+    'points', 'Accomodation', '/img/Hilton.png', '8');
 
-INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(3, 'Dufry', 'http://localhost:8083/api');
-INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
-    VALUES(3, 3, 'Dufry Points', 'points', 'Retail', 'http://sandbox.gcc.dufry.com/images/dufry_customer_service.jpg', '3');
+INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(3, 'Flying Blue', 'http://localhost:8083/api');
+INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
+    VALUES(3, 3, 'Flying Blue Silver', 'Flying Blue Silver',
+    'points', 'Transportation', '/img/fbsil.jpeg', '3');
+INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
+    VALUES(4, 3, 'Flying Blue Platinum', 'Flying Blue Platinum',
+    'points', 'Transportation', '/img/fbplat.png', '3');
 
 
 INSERT INTO USER(ID, NAME, EMAIL) VALUES(1, 'Jamil Benabdallah', 'jamil@travelcoin.com');
