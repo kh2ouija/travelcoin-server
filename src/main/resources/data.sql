@@ -5,15 +5,15 @@ INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY,
 
 INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(2, 'Hilton', 'http://localhost:8082/api');
 INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
-    VALUES(2, 2, 'Hilton', 'Hilton',
+    VALUES(2, 2, 'Hilton', 'Book hotels and resorts directly with Hilton to make your next business trip or vacation more relaxing and affordable.',
     'points', 'Accomodation', '/img/loyalty/hilton3.jpg', '8');
 
 INSERT INTO PROVIDER(ID, NAME, ENDPOINT) VALUES(3, 'Flying Blue', 'http://localhost:8083/api');
 INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
-    VALUES(3, 3, 'Flying Blue Silver', 'Flying Blue Silver',
+    VALUES(3, 3, 'Flying Blue Silver', 'Bring home Miles when flying with AIR FRANCE, KLM, Kenya Airways, HOP!, Transavia, Kenya Airways, AirCalin, Tarom and many more partner airlines.',
     'points', 'Transportation', '/img/loyalty/fbsil.jpeg', '3');
 INSERT INTO ASSET_TYPE(ID, PROVIDER_ID, TITLE, DESCRIPTION, UNIT_NAME, CATEGORY, IMAGE_URL, CONVERSION_RATE)
-    VALUES(4, 3, 'Flying Blue Platinum', 'Flying Blue Platinum',
+    VALUES(4, 3, 'Flying Blue Platinum', 'Bring home Miles when flying with AIR FRANCE, KLM, Kenya Airways, HOP!, Transavia, Kenya Airways, AirCalin, Tarom and many more partner airlines.',
     'points', 'Transportation', '/img/loyalty/fbplat.png', '4');
 
 
