@@ -15,6 +15,7 @@ public class Product {
     private String title;
     private String description;
     private String imageUrl;
+    private String mapUrl;
     private BigDecimal price;
 
     public Long getId() {
@@ -47,6 +48,14 @@ public class Product {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getMapUrl() {
+        return mapUrl;
+    }
+
+    public void setMapUrl(String mapUrl) {
+        this.mapUrl = mapUrl;
     }
 
     public BigDecimal getPrice() {

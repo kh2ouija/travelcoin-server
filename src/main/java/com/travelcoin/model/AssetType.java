@@ -18,6 +18,8 @@ public class AssetType {
 
     private String title;
     private String unitName;
+    private String imageUrl;
+    private String category;
     private BigDecimal conversionRate;
 
     public Long getId() {
@@ -50,6 +52,22 @@ public class AssetType {
 
     public void setUnitName(String unitName) {
         this.unitName = unitName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public BigDecimal getConversionRate() {
